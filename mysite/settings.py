@@ -25,7 +25,7 @@ SECRET_KEY = 'l$6yhf4ajieu2ori=icfhej-yy4ckqpsj+^ba%x(%@_=mz0s@4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -37,7 +37,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-'polls',
+    'rangefilter',
+    'polls',
+    'mysite',
+    'advanced_filters',
+    'rest_framework'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -101,3 +105,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+BROKER_URL = 'redis://localhost:6379/1'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
